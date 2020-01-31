@@ -13,21 +13,18 @@ birth_month = int(input('Пожалуйста, введите месяц Ваш�
 birth_year = int(input('Пожалуйста, введите год Вашего рождения в формате ГГГГ:'))
 
 # Вывести количество прожитых лет.
-if birth_date <= 31 and birth_month == 1:
-    years = 2020 - birth_year
-else:
-    years = 2019 - birth_year
-print('''
-Количество прожитых Вами лет:''', years)
+
 
 # Вывести количество прожитых месяцев.
-if birth_month == 1:
-    months = years*12
-else:
-    months = years*12 + (12 - birth_month)
-print('Количество прожитых Вами месяцев:', months)
+
 
 # Вывести количество прожитых дней, месяцев, лет до даты начала курса 10.01.2020 - без учёта високосных лет и среднее количество дней в месяце считать 30.
-days = months*30 + 9
-days_months_years = str(days) + ' дней /' + str(months) + ' месяцев /' + str(years) + ' лет.'
+num_days_in_1st_month_of_life = 30 - birth_date +1
+num_passed_days_in_jan_2020 = 9
+num_months_in_1st_year_of_life = 12 - birth_month +1
+num_months_total = (2019 - birth_year)*12+num_months_in_1st_year_of_life
+num_years_total = num_months_total // 12
+num_days_total = (num_months_total - 1)*30 + num_days_in_1st_month_of_life + num_passed_days_in_jan_2020
+
+days_months_years = str(num_days_total) + ' дней /' + str(num_months_total) + ' месяцев /' + str(num_years_total) + ' лет.'
 print('Количество прожитых Вами дней / месяцев / лет до даты начала курса 10.01.2020:', days_months_years)
