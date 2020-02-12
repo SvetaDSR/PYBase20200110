@@ -88,6 +88,19 @@ class AutoSalon:
         car.color = color
         return 0.5
 
+    def load(self):
+        """
+            Загрузить днные салона из файла
+        """
+        # TODO сделать загрузку из файла
+        self.append(
+            Car(
+                model_name='Mazda',
+                price=11,
+                color='cyan',
+            )
+        )
+        self.append(Car('Toyota', 10, 'white', vin=hex(121243).upper()[2:]))
 
 salon1 = AutoSalon('АВТ Бавария')
 salon1.append(car1)
